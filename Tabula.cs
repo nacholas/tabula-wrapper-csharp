@@ -79,13 +79,9 @@ namespace TabulaWrapper
 
                     //fill DataTable
                     var r = table.NewRow();
-                    for (int k = 0; k < data[0].GetArrayLength(); k++)
+                    for (int l = 0; l < dataElement.GetArrayLength(); l++)
                     {
-                        if (data[0][k].ValueKind != JsonValueKind.Object)
-                        {
-                            throw new Exception("Expected object!");
-                        }
-                        r[k] = data[0][k].GetProperty("text");
+                        r[l] = dataElement[l].GetProperty("text");
                     }
                     table.Rows.Add(r);
                 }
